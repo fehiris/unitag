@@ -111,8 +111,8 @@ function KeranjangPage() {
             </AnimatePresence>
           </div>
 
-          {/* Sticky checkout */}
-          <div className="fixed bottom-20 left-1/2 z-30 w-full max-w-md -translate-x-1/2 px-4">
+          {/* Sticky checkout — sticky (bukan fixed) supaya ikut transisi halaman */}
+          <div className="sticky bottom-24 z-30 mx-4 mb-4">
             <div className="glass flex items-center justify-between gap-3 rounded-2xl p-3 shadow-elevated">
               <div>
                 <p className="text-[10px] text-muted-foreground">Total Belanja</p>
@@ -127,6 +127,7 @@ function KeranjangPage() {
               </div>
               <motion.button
                 whileTap={{ scale: 0.96 }}
+                onClick={() => alert("Checkout berhasil! (mock)")}
                 className="rounded-full bg-gradient-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-elevated"
               >
                 Checkout
