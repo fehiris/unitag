@@ -42,7 +42,7 @@ function KeranjangPage() {
         </motion.div>
       ) : (
         <>
-          <div className="space-y-3 px-4 pt-2 pb-32">
+          <div className="space-y-3 px-4 pt-2 pb-4">
             <AnimatePresence>
               {items.map((item) => (
                 <motion.div
