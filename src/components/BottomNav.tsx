@@ -22,8 +22,8 @@ export function BottomNav() {
   const count = useCart((s) => s.count());
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 glass shadow-nav safe-bottom">
-      <div className="mx-auto flex max-w-md items-center justify-around px-2 pt-2 pb-2">
+    <nav className="fixed bottom-0 left-1/2 z-40 w-full max-w-md -translate-x-1/2 glass shadow-nav safe-bottom md:absolute md:left-0 md:translate-x-0 md:rounded-b-[2.5rem]">
+      <div className="flex items-center justify-around px-2 pt-2 pb-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const active = location.pathname === tab.to;

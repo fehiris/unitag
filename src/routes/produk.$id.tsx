@@ -41,7 +41,7 @@ function ProdukDetail() {
   };
 
   return (
-    <div className="pb-28">
+    <div className="pb-4">
       <AppHeader showBack transparent />
 
       {/* Hero image */}
@@ -139,9 +139,9 @@ function ProdukDetail() {
         </div>
       </motion.div>
 
-      {/* Sticky bottom action */}
-      <div className="fixed bottom-0 left-1/2 z-30 w-full max-w-md -translate-x-1/2 glass shadow-nav safe-bottom">
-        <div className="flex gap-2 p-3">
+      {/* Sticky bottom action — sticky supaya ikut transisi halaman */}
+      <div className="sticky bottom-20 z-30 mx-3 mt-4 glass rounded-2xl shadow-elevated">
+        <div className="flex gap-2 p-2">
           <motion.button
             whileTap={{ scale: 0.96 }}
             onClick={handleAdd}
