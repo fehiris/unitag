@@ -3,12 +3,19 @@ import { motion } from "framer-motion";
 import { Home, LayoutGrid, ShoppingBag, User } from "lucide-react";
 import { useCart } from "@/store/cart";
 
-const tabs = [
+type Tab = {
+  to: "/" | "/kategori" | "/keranjang" | "/profil";
+  label: string;
+  icon: typeof Home;
+  badge?: boolean;
+};
+
+const tabs: Tab[] = [
   { to: "/", label: "Beranda", icon: Home },
   { to: "/kategori", label: "Kategori", icon: LayoutGrid },
   { to: "/keranjang", label: "Keranjang", icon: ShoppingBag, badge: true },
   { to: "/profil", label: "Profil", icon: User },
-] as const;
+];
 
 export function BottomNav() {
   const location = useLocation();
