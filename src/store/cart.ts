@@ -49,6 +49,6 @@ export const useCart = create<CartState>()(
         get().items.reduce((s, i) => s + i.product.price * i.qty, 0),
       count: () => get().items.reduce((s, i) => s + i.qty, 0),
     }),
-    { name: "gadgetku-cart" },
+    { name: "unitag-cart" },
   ),
 );
