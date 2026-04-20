@@ -55,6 +55,13 @@ export const Route = createRootRoute({
         content: "Belanja aksesoris gadget premium dengan harga terbaik.",
       },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "uniTAG — Aksesoris Gadget Premium" },
+      { name: "description", content: "Gadget Hub App is a mobile-first e-commerce web app for gadget accessories." },
+      { property: "og:description", content: "Gadget Hub App is a mobile-first e-commerce web app for gadget accessories." },
+      { name: "twitter:description", content: "Gadget Hub App is a mobile-first e-commerce web app for gadget accessories." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6659aa35-0ebd-4200-ac1c-1f603993797c/id-preview-a4c89b9d--6a47ad01-9e88-4afb-86eb-34abf2d9e8ff.lovable.app-1776655561306.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6659aa35-0ebd-4200-ac1c-1f603993797c/id-preview-a4c89b9d--6a47ad01-9e88-4afb-86eb-34abf2d9e8ff.lovable.app-1776655561306.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
