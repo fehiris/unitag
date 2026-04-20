@@ -5,6 +5,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { BottomNav } from "@/components/BottomNav";
+import { FlyToCartProvider } from "@/components/FlyToCartProvider";
 import { PageTransition } from "@/components/PageTransition";
 
 import appCss from "../styles.css?url";
@@ -96,15 +97,17 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="min-h-screen w-full bg-surface md:bg-gradient-to-br md:from-primary-soft md:via-surface md:to-accent-soft">
-      <div className="relative mx-auto flex min-h-screen w-full max-w-md flex-col bg-surface md:my-6 md:min-h-[calc(100vh-3rem)] md:max-w-[420px] md:overflow-hidden md:rounded-[2.5rem] md:border md:border-border md:shadow-elevated">
-        <main className="flex-1 overflow-x-hidden pb-24">
-          <PageTransition>
-            <Outlet />
-          </PageTransition>
-        </main>
-        <BottomNav />
+    <FlyToCartProvider>
+      <div className="min-h-screen w-full bg-surface md:bg-gradient-to-br md:from-primary-soft md:via-surface md:to-accent-soft">
+        <div className="relative mx-auto flex min-h-screen w-full max-w-md flex-col bg-surface md:my-8 md:min-h-[calc(100vh-4rem)] md:max-w-[500px] md:overflow-hidden md:rounded-[2.5rem] md:border md:border-border md:shadow-elevated lg:max-w-[560px]">
+          <main className="relative flex-1 overflow-x-hidden pb-24">
+            <PageTransition>
+              <Outlet />
+            </PageTransition>
+          </main>
+          <BottomNav />
+        </div>
       </div>
-    </div>
+    </FlyToCartProvider>
   );
 }
