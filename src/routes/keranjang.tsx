@@ -111,8 +111,8 @@ function KeranjangPage() {
             </AnimatePresence>
           </div>
 
-          {/* Sticky checkout — sticky (bukan fixed) supaya ikut transisi halaman */}
-          <div className="sticky bottom-24 z-30 mx-4 mb-4">
+          {/* Checkout bar — bagian flow halaman supaya ikut exit transition tanpa "menggantung" */}
+          <div className="sticky bottom-24 z-20 mx-4 mb-4">
             <div className="glass flex items-center justify-between gap-3 rounded-2xl p-3 shadow-elevated">
               <div>
                 <p className="text-[10px] text-muted-foreground">Total Belanja</p>

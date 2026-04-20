@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import {
   ShoppingBag,
   MapPin,
@@ -41,11 +40,7 @@ function ProfilPage() {
       <AppHeader title="Profil" />
 
       {/* Profile card */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mx-4 rounded-3xl bg-gradient-hero p-5 text-white shadow-elevated"
-      >
+      <div className="mx-4 rounded-3xl bg-gradient-hero p-5 text-white shadow-elevated animate-fade-in">
         <div className="flex items-center gap-3">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-2xl font-bold backdrop-blur-md">
             AS
@@ -58,36 +53,30 @@ function ProfilPage() {
             </span>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Stats */}
       <div className="mx-4 mt-3 grid grid-cols-3 gap-2">
         {stats.map((s, i) => (
-          <motion.div
+          <button
             key={s.label}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 + i * 0.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="flex flex-col items-center rounded-2xl bg-card p-3 shadow-soft"
+            style={{ animationDelay: `${i * 60}ms` }}
+            className="flex flex-col items-center rounded-2xl bg-card p-3 shadow-soft tap-highlight animate-fade-in"
           >
             <s.icon className="h-5 w-5 text-primary" />
             <span className="mt-1 text-base font-bold">{s.value}</span>
             <span className="text-[10px] text-muted-foreground">{s.label}</span>
-          </motion.div>
+          </button>
         ))}
       </div>
 
       {/* Menu list */}
       <div className="mx-4 mt-4 overflow-hidden rounded-2xl bg-card shadow-soft">
         {menus.map((m, i) => (
-          <motion.button
+          <button
             key={m.label}
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.15 + i * 0.04 }}
-            whileTap={{ scale: 0.98, backgroundColor: "var(--muted)" }}
-            className={`flex w-full items-center gap-3 border-b border-border px-4 py-3.5 text-left last:border-b-0 ${
+            style={{ animationDelay: `${100 + i * 40}ms` }}
+            className={`tap-highlight flex w-full items-center gap-3 border-b border-border px-4 py-3.5 text-left transition-colors last:border-b-0 hover:bg-muted active:bg-muted animate-fade-in ${
               m.danger ? "text-destructive" : "text-foreground"
             }`}
           >
@@ -104,7 +93,7 @@ function ProfilPage() {
             {!m.danger && (
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
             )}
-          </motion.button>
+          </button>
         ))}
       </div>
 

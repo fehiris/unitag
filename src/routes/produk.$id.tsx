@@ -145,8 +145,8 @@ function ProdukDetail() {
         </div>
       </motion.div>
 
-      {/* Sticky bottom action — sticky supaya ikut transisi halaman */}
-      <div className="sticky bottom-20 z-30 mx-3 mt-4 glass rounded-2xl shadow-elevated">
+      {/* Action bar — sticky di dalam halaman, ikut exit saat pindah route */}
+      <div className="sticky bottom-24 z-20 mx-3 mt-4 glass rounded-2xl shadow-elevated">
         <div className="flex gap-2 p-2">
           <motion.button
             whileTap={{ scale: 0.96 }}
