@@ -7,6 +7,13 @@ export function PageTransition({ children }: { children: ReactNode }) {
   const [showMask, setShowMask] = useState(false);
 
   useEffect(() => {
+    const handleNavStart = () => setShowMask(true);
+
+    window.addEventListener("nav:transition-start", handleNavStart);
+    return () => window.removeEventListener("nav:transition-start", handleNavStart);
+  }, []);
+
+  useEffect(() => {
     let timeout: number | undefined;
 
     if (isNavigating) {
@@ -20,9 +27,16 @@ export function PageTransition({ children }: { children: ReactNode }) {
     };
   }, [isNavigating]);
 
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setShowMask(false), 180);
+    return () => window.clearTimeout(timeout);
+  }, [location.pathname]);
+
   return (
     <div key={location.pathname} className="relative isolate min-h-full w-full overflow-hidden">
-      <div className={`w-full animate-fade-in ${showMask ? "opacity-0" : "opacity-100"}`}>
+      <div
+        className={`min-h-full w-full bg-surface animate-fade-in transition-opacity duration-100 ${showMask ? "opacity-0" : "opacity-100"}`}
+      >
         {children}
       </div>
       {showMask && (

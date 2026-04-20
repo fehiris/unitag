@@ -23,6 +23,12 @@ export function BottomNav() {
   const count = useCart((s) => s.count());
   const [cartPulse, setCartPulse] = useState(0);
 
+  const handleNavPress = (to: Tab["to"]) => {
+    if (location.pathname !== to) {
+      window.dispatchEvent(new CustomEvent("nav:transition-start"));
+    }
+  };
+
   useEffect(() => {
     const handleCartBump = () => setCartPulse((value) => value + 1);
 
@@ -41,6 +47,7 @@ export function BottomNav() {
             <Link
               key={tab.to}
               to={tab.to}
+              onClick={() => handleNavPress(tab.to)}
               className="relative flex flex-1 flex-col items-center gap-1 py-1.5"
             >
               <div className="relative" data-cart-target={isCartTab || undefined}>
