@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Home, LayoutGrid, ShoppingBag, User } from "lucide-react";
 import { useCart } from "@/store/cart";
 
@@ -20,6 +21,14 @@ const tabs: Tab[] = [
 export function BottomNav() {
   const location = useLocation();
   const count = useCart((s) => s.count());
+  const [cartPulse, setCartPulse] = useState(0);
+
+  useEffect(() => {
+    const handleCartBump = () => setCartPulse((value) => value + 1);
+
+    window.addEventListener("cart:bump", handleCartBump);
+    return () => window.removeEventListener("cart:bump", handleCartBump);
+  }, []);
 
   return (
     <nav className="fixed bottom-0 left-1/2 z-40 w-full max-w-md -translate-x-1/2 glass shadow-nav safe-bottom md:absolute md:left-0 md:translate-x-0 md:rounded-b-[2.5rem]">
@@ -27,17 +36,28 @@ export function BottomNav() {
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const active = location.pathname === tab.to;
+          const isCartTab = tab.to === "/keranjang";
           return (
             <Link
               key={tab.to}
               to={tab.to}
               className="relative flex flex-1 flex-col items-center gap-1 py-1.5"
             >
-              <div className="relative">
+              <div className="relative" data-cart-target={isCartTab || undefined}>
                 <motion.div
                   animate={{
-                    scale: active ? 1.15 : 1,
-                    y: active ? -2 : 0,
+                    scale:
+                      isCartTab && cartPulse > 0
+                        ? [active ? 1.15 : 1, 1.28, active ? 1.15 : 1]
+                        : active
+                          ? 1.15
+                          : 1,
+                    y:
+                      isCartTab && cartPulse > 0
+                        ? [active ? -2 : 0, -6, active ? -2 : 0]
+                        : active
+                          ? -2
+                          : 0,
                   }}
                   transition={{ type: "spring", stiffness: 500, damping: 25 }}
                   className={`flex h-10 w-10 items-center justify-center rounded-2xl transition-colors ${

@@ -1,8 +1,9 @@
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { Star, Heart, Share2, ShoppingBag, Check } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
+import { useFlyToCart } from "@/components/FlyToCartProvider";
 import { products, formatRupiah } from "@/data/products";
 import { useCart } from "@/store/cart";
 
@@ -15,6 +16,7 @@ function ProdukDetail() {
   const navigate = useNavigate();
   const product = products.find((p) => p.id === id);
   const addItem = useCart((s) => s.addItem);
+  const { flyToCart } = useFlyToCart();
   const [variant, setVariant] = useState(product?.variants[0] ?? "");
   const [added, setAdded] = useState(false);
 
@@ -29,8 +31,12 @@ function ProdukDetail() {
     );
   }
 
-  const handleAdd = () => {
+  const handleAdd = (event: MouseEvent<HTMLButtonElement>) => {
     addItem(product, variant);
+    flyToCart({
+      image: product.image,
+      sourceRect: event.currentTarget.getBoundingClientRect(),
+    });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
