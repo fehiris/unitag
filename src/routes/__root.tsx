@@ -39,7 +39,7 @@ export const Route = createRootRoute({
         content:
           "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
       },
-      { title: "GadgetKu — Aksesoris Gadget Premium" },
+      { title: "uniTAG — Aksesoris Gadget Premium" },
       {
         name: "description",
         content:
@@ -48,8 +48,8 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#22c55e" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "default" },
-      { name: "apple-mobile-web-app-title", content: "GadgetKu" },
-      { property: "og:title", content: "GadgetKu — Aksesoris Gadget Premium" },
+      { name: "apple-mobile-web-app-title", content: "uniTAG" },
+      { property: "og:title", content: "uniTAG — Aksesoris Gadget Premium" },
       {
         property: "og:description",
         content: "Belanja aksesoris gadget premium dengan harga terbaik.",

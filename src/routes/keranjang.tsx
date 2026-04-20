@@ -7,7 +7,7 @@ import { formatRupiah } from "@/data/products";
 
 export const Route = createFileRoute("/keranjang")({
   component: KeranjangPage,
-  head: () => ({ meta: [{ title: "Keranjang — GadgetKu" }] }),
+  head: () => ({ meta: [{ title: "Keranjang — uniTAG" }] }),
 });
 
 function KeranjangPage() {
