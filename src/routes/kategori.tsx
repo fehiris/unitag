@@ -8,7 +8,7 @@ import { categories, products } from "@/data/products";
 export const Route = createFileRoute("/kategori")({
   component: KategoriPage,
   head: () => ({
-    meta: [{ title: "Kategori — GadgetKu" }],
+    meta: [{ title: "Kategori — uniTAG" }],
   }),
 });
 

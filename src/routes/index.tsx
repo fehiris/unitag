@@ -20,7 +20,7 @@ function BerandaPage() {
         <div className="flex items-center gap-3">
           <div className="flex-1">
             <p className="text-xs text-white/80">Halo, Selamat datang 👋</p>
-            <h1 className="text-lg font-bold text-white">GadgetKu</h1>
+            <h1 className="text-lg font-bold text-white">uniTAG</h1>
           </div>
           <motion.button
             whileTap={{ scale: 0.9 }}

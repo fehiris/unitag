@@ -15,7 +15,7 @@ import { AppHeader } from "@/components/AppHeader";
 
 export const Route = createFileRoute("/profil")({
   component: ProfilPage,
-  head: () => ({ meta: [{ title: "Profil — GadgetKu" }] }),
+  head: () => ({ meta: [{ title: "Profil — uniTAG" }] }),
 });
 
 const stats = [
@@ -42,12 +42,12 @@ function ProfilPage() {
       {/* Profile card */}
       <div className="mx-4 rounded-3xl bg-gradient-hero p-5 text-white shadow-elevated animate-fade-in">
         <div className="flex items-center gap-3">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-2xl font-bold backdrop-blur-md">
-            AS
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 text-2xl font-bold backdrop-blur-md">
+              HT
           </div>
           <div className="flex-1">
-            <h2 className="text-base font-bold">Andi Setiawan</h2>
-            <p className="text-xs opacity-90">andi@gadgetku.com</p>
+              <h2 className="text-base font-bold">hardian tanoko</h2>
+              <p className="text-xs opacity-90">hardian@unitag.id</p>
             <span className="mt-1 inline-block rounded-full bg-white/25 px-2 py-0.5 text-[10px] font-semibold backdrop-blur-md">
               ⭐ Member Gold
             </span>
@@ -98,7 +98,7 @@ function ProfilPage() {
       </div>
 
       <p className="mt-6 mb-4 text-center text-[10px] text-muted-foreground">
-        GadgetKu v1.0.0
+        uniTAG v1.0.0
       </p>
     </div>
   );
